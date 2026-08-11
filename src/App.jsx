@@ -11,10 +11,13 @@ import Privacy from './pages/Privacy';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
+import {ThemeProvider} from "./context/ThemeContext";
 
 function App() {
   return (
-    <Router>
+  <ThemeProvider>
+
+      <Router>
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
@@ -34,6 +37,8 @@ function App() {
         <Footer />
       </div>
     </Router>
+  </ThemeProvider>
+
   );
 }
 

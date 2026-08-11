@@ -213,403 +213,403 @@ function Home() {
   };
 
   return (
-    <div className="space-y-16">
-      {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
-            alt="Hero background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
-        
-        <div className="relative container text-center text-white space-y-8">
-          <motion.h1 
-            className="text-5xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Invest and Trade in Real Estate with Cryptocurrency
-          </motion.h1>
-          <motion.p 
-            className="text-xl max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Own fractional shares of premium properties through NFTs. Start investing with as little as $10.
-          </motion.p>
-        </div>
-      </section>
-      {/* Investment Steps */}
-      <section className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Start Investing in Minutes</h2>
-          <p className="text-secondary-600">Your journey to crypto-powered real estate investment</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {investmentSteps.map((step, index) => (
-            <motion.div
-              key={index}
-              className="relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="bg-primary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="text-2xl text-primary-600" />
-                </div>
-                <div className="text-primary-600 text-2xl font-bold mb-4">Step {index + 1}</div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-secondary-600">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="bg-secondary-900 text-white py-16">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">How RentVerse Works</h2>
-            <p className="text-secondary-300">Understanding our tokenized real estate platform</p>
+      <div className="space-y-16">
+        {/* Hero Section */}
+        <section className="relative h-[600px] flex items-center justify-center">
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
+                alt="Hero background"
+                className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {howItWorks.map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-secondary-800 p-6 rounded-lg"
+
+          <div className="relative container text-center text-white space-y-8">
+            <motion.h1
+                className="text-5xl font-bold"
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="text-2xl text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-center">{item.title}</h3>
-                <p className="text-secondary-300 text-center">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Properties */}
-      <section className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Featured Investment Opportunities</h2>
-          <p className="text-secondary-600">Curated properties with verified returns and immediate tokenization</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProperties.map((property, index) => (
-            <motion.div
-              key={property.id}
-              className="card group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
             >
-              <div className="relative h-48">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-primary-600 font-semibold">
-                  {property.status}
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
-                <p className="text-secondary-600 mb-4">{property.location}</p>
-                
-                <div className="flex justify-between items-center mb-4">
-                  <div>
-                    <p className="text-sm text-secondary-500">Price</p>
-                    <p className="font-semibold">${property.price.usd.toLocaleString()}</p>
-                    <p className="text-sm text-primary-600">{property.price.eth} ETH</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-secondary-500">ROI</p>
-                    <p className="font-semibold text-green-600">{property.roi}</p>
-                  </div>
-                </div>
+              Invest and Trade in Real Estate with Cryptocurrency
+            </motion.h1>
+            <motion.p
+                className="text-xl max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Own fractional shares of premium properties through NFTs. Start investing with as little as $10.
+            </motion.p>
+          </div>
+        </section>
+        {/* Investment Steps */}
+        <section className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 dark:text-white">Start Investing in Minutes</h2>
+            <p className="text-secondary-600 dark:text-secondary-300">Your journey to crypto-powered real estate investment</p>
+          </div>
 
-                <div className="space-y-2 mb-4">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-secondary-600">Total Investors</span>
-                    <span className="font-medium">{property.metrics.totalInvestors}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-secondary-600">Funded</span>
-                    <span className="font-medium">{property.metrics.funded}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-secondary-600">Min Investment</span>
-                    <span className="font-medium">{property.metrics.minInvestment}</span>
-                  </div>
-                </div>
-
-                <Link
-                  to={`/properties/${property.id}`}
-                  className="btn w-full flex items-center justify-center"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {investmentSteps.map((step, index) => (
+                <motion.div
+                    key={index}
+                    className="relative"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
                 >
-                  Invest Now
-                  <FiArrowRight className="ml-2" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="bg-secondary-50 pt-16">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose RentVerse</h2>
-            <p className="text-secondary-600">Experience the future of real estate investment</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advantages.map((advantage, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <advantage.icon className="text-4xl text-primary-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{advantage.title}</h3>
-                <p className="text-secondary-600">{advantage.description}</p>
-              </motion.div>
+                  <div className="bg-white dark:bg-secondary-800 p-6 rounded-lg shadow-md text-center">
+                    <div className="bg-primary-50 dark:bg-secondary-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <step.icon className="text-2xl text-primary-600 dark:text-primary-400" />
+                    </div>
+                    <div className="text-primary-600 dark:text-primary-400 text-2xl font-bold mb-4">Step {index + 1}</div>
+                    <h3 className="text-xl font-semibold mb-2 dark:text-white">{step.title}</h3>
+                    <p className="text-secondary-600 dark:text-secondary-300">{step.description}</p>
+                  </div>
+                </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section className="container">
-        <div className="bg-primary-600 rounded-2xl p-8 md:p-12 text-white text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Investing?</h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Join thousands of investors already earning passive income through tokenized real estate.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/properties"
-              className="btn bg-white text-primary-600 hover:bg-primary-50"
-            >
-              Browse Properties
-            </Link>
-            <button
-              className="btn bg-primary-700 hover:bg-primary-800"
-            >
-              <FaWallet className="mr-2" />
-              Connect Wallet
-            </button>
-          </div>
-        </div>
-      </section>
-      
-      {/* Blog */}
-      <div className="container bg-white py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <h1 className="text-3xl font-bold mb-4">Latest Insights</h1>
-          <p className="text-secondary-600">
-            Stay informed with our latest articles and market analysis
-          </p>
-        </motion.div>
+        </section>
 
-        {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <motion.article
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <Link to={`/blog/${post.slug}`}>
-                <div className="relative h-48">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-primary-600">
-                    {categories.find(c => c.id === post.category)?.name}
+        {/* How It Works */}
+        <section className="bg-secondary-900 dark:bg-black text-white py-16">
+          <div className="container">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">How RentVerse Works</h2>
+              <p className="text-secondary-300">Understanding our tokenized real estate platform</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {howItWorks.map((item, index) => (
+                  <motion.div
+                      key={index}
+                      className="bg-secondary-800 dark:bg-secondary-900 p-6 rounded-lg"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.2 }}
+                  >
+                    <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="text-2xl text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 text-center">{item.title}</h3>
+                    <p className="text-secondary-300 text-center">{item.description}</p>
+                  </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Properties */}
+        <section className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 dark:text-white">Featured Investment Opportunities</h2>
+            <p className="text-secondary-600 dark:text-secondary-300">Curated properties with verified returns and immediate tokenization</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProperties.map((property, index) => (
+                <motion.div
+                    key={property.id}
+                    className="card group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
+                >
+                  <div className="relative h-48">
+                    <img
+                        src={property.image}
+                        alt={property.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 right-4 bg-white dark:bg-secondary-900 px-3 py-1 rounded-full text-primary-600 dark:text-primary-400 font-semibold">
+                      {property.status}
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-3 hover:text-primary-600 transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="text-secondary-600 mb-4">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center text-sm text-secondary-500">
-                    <FiUser className="mr-2" />
-                    <span className="mr-4">{post.author}</span>
-                    <FiClock className="mr-2" />
-                    <span>{post.readTime}</span>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 dark:text-white">{property.title}</h3>
+                    <p className="text-secondary-600 dark:text-secondary-300 mb-4">{property.location}</p>
+
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <p className="text-sm text-secondary-500 dark:text-secondary-400">Price</p>
+                        <p className="font-semibold dark:text-white">${property.price.usd.toLocaleString()}</p>
+                        <p className="text-sm text-primary-600 dark:text-primary-400">{property.price.eth} ETH</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-secondary-500 dark:text-secondary-400">ROI</p>
+                        <p className="font-semibold text-green-600 dark:text-green-400">{property.roi}</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 mb-4">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-secondary-600 dark:text-secondary-300">Total Investors</span>
+                        <span className="font-medium dark:text-white">{property.metrics.totalInvestors}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-secondary-600 dark:text-secondary-300">Funded</span>
+                        <span className="font-medium dark:text-white">{property.metrics.funded}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-secondary-600 dark:text-secondary-300">Min Investment</span>
+                        <span className="font-medium dark:text-white">{property.metrics.minInvestment}</span>
+                      </div>
+                    </div>
+
+                    <Link
+                        to={`/properties/${property.id}`}
+                        className="btn w-full flex items-center justify-center"
+                    >
+                      Invest Now
+                      <FiArrowRight className="ml-2" />
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="bg-secondary-50 dark:bg-secondary-800 pt-16">
+          <div className="container">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 dark:text-white">Why Choose RentVerse</h2>
+              <p className="text-secondary-600 dark:text-secondary-300">Experience the future of real estate investment</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {advantages.map((advantage, index) => (
+                  <motion.div
+                      key={index}
+                      className="bg-white dark:bg-secondary-900 p-6 rounded-lg shadow-md text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.2 }}
+                  >
+                    <advantage.icon className="text-4xl text-primary-600 dark:text-primary-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-2 dark:text-white">{advantage.title}</h3>
+                    <p className="text-secondary-600 dark:text-secondary-300">{advantage.description}</p>
+                  </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="container">
+          <div className="bg-primary-600 rounded-2xl p-8 md:p-12 text-white text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Start Investing?</h2>
+            <p className="text-lg mb-8 max-w-2xl mx-auto">
+              Join thousands of investors already earning passive income through tokenized real estate.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                  to="/properties"
+                  className="btn bg-white text-primary-600 hover:bg-primary-50"
+              >
+                Browse Properties
               </Link>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-
-      {/* FAQ Preview */}
-      <section className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mx-auto"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-secondary-600">Find answers to common questions about our platform, cryptocurrency payments, and real estate investment.</p>
+              <button
+                  className="btn bg-primary-700 hover:bg-primary-800"
+              >
+                <FaWallet className="mr-2" />
+                Connect Wallet
+              </button>
+            </div>
           </div>
-          <div className="space-y-8">
-            {faqSections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="divide-y divide-secondary-100">
-                  {section.questions.map((item, questionIndex) => (
-                    <div key={questionIndex} className="p-6">
-                      <button
-                        className="w-full flex justify-between items-center text-left"
-                        onClick={() => toggleSection(section.title, questionIndex)}
-                      >
-                        <span className="font-medium">{item.question}</span>
-                        {openSections[`${section.title}-${questionIndex}`] ? (
-                          <FiChevronUp className="flex-shrink-0 ml-4" />
-                        ) : (
-                          <FiChevronDown className="flex-shrink-0 ml-4" />
-                        )}
-                      </button>
-                      <AnimatePresence>
-                        {openSections[`${section.title}-${questionIndex}`] && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden"
-                          >
-                            <p className="mt-4 text-secondary-600">
-                              {item.answer}
-                            </p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+        </section>
+
+        {/* Blog */}
+        <div className="container bg-white dark:bg-secondary-900 py-24">
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <h1 className="text-3xl font-bold mb-4 dark:text-white">Latest Insights</h1>
+            <p className="text-secondary-600 dark:text-secondary-300">
+              Stay informed with our latest articles and market analysis
+            </p>
+          </motion.div>
+
+          {/* Blog Posts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => (
+                <motion.article
+                    key={post.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white dark:bg-secondary-800 rounded-lg shadow-md overflow-hidden"
+                >
+                  <Link to={`/blog/${post.slug}`}>
+                    <div className="relative h-48">
+                      <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-4 right-4 bg-white dark:bg-secondary-900 px-3 py-1 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+                        {categories.find(c => c.id === post.category)?.name}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                    <div className="p-6">
+                      <h2 className="text-xl font-semibold mb-3 hover:text-primary-600 transition-colors dark:text-white">
+                        {post.title}
+                      </h2>
+                      <p className="text-secondary-600 dark:text-secondary-300 mb-4">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center text-sm text-secondary-500 dark:text-secondary-400">
+                        <FiUser className="mr-2" />
+                        <span className="mr-4">{post.author}</span>
+                        <FiClock className="mr-2" />
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.article>
             ))}
           </div>
-        </motion.div>
-      </section>
-      
-      {/* Discord CTA */}
-      <section className="py-12 bg-primary-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-                Join Our Community
-              </h2>
-              <p className="mt-4 text-lg text-primary-100">
-                Connect with other crypto real estate investors, share insights, and get early access to new properties.
-              </p>
-              <dl className="mt-8 space-y-6">
-                <div className="flex">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary-700 text-white">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <dt className="text-lg leading-6 font-medium text-white">
-                      10,000+ Members
-                    </dt>
-                    <dd className="mt-2 text-base text-primary-100">
-                      Join a growing community of crypto-savvy real estate investors
-                    </dd>
-                  </div>
-                </div>
+        </div>
 
-                <div className="flex">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary-700 text-white">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <dt className="text-lg leading-6 font-medium text-white">
-                      Weekly Events
-                    </dt>
-                    <dd className="mt-2 text-base text-primary-100">
-                      Educational webinars, market updates, and networking sessions
-                    </dd>
-                  </div>
-                </div>
-              </dl>
+        {/* FAQ Preview */}
+        <section className="container">
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="max-w-3xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 dark:text-white">Frequently Asked Questions</h2>
+              <p className="text-secondary-600 dark:text-secondary-300">Find answers to common questions about our platform, cryptocurrency payments, and real estate investment.</p>
             </div>
+            <div className="space-y-8">
+              {faqSections.map((section, sectionIndex) => (
+                  <div key={sectionIndex} className="bg-white dark:bg-secondary-800 rounded-lg shadow-md overflow-hidden">
+                    <div className="divide-y divide-secondary-100 dark:divide-secondary-700">
+                      {section.questions.map((item, questionIndex) => (
+                          <div key={questionIndex} className="p-6">
+                            <button
+                                className="w-full flex justify-between items-center text-left"
+                                onClick={() => toggleSection(section.title, questionIndex)}
+                            >
+                              <span className="font-medium dark:text-white">{item.question}</span>
+                              {openSections[`${section.title}-${questionIndex}`] ? (
+                                  <FiChevronUp className="flex-shrink-0 ml-4 dark:text-white" />
+                              ) : (
+                                  <FiChevronDown className="flex-shrink-0 ml-4 dark:text-white" />
+                              )}
+                            </button>
+                            <AnimatePresence>
+                              {openSections[`${section.title}-${questionIndex}`] && (
+                                  <motion.div
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                  >
+                                    <p className="mt-4 text-secondary-600 dark:text-secondary-300">
+                                      {item.answer}
+                                    </p>
+                                  </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
 
-            <div className="mt-12 lg:mt-0 flex justify-center">
-              <div className="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full">
-                <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">
-                  Join Discord
-                </h3>
-                <p className="text-gray-500 text-center mb-8">
-                  Get instant access to our community and start connecting with other investors
+        {/* Discord CTA */}
+        <section className="py-12 bg-primary-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+              <div>
+                <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+                  Join Our Community
+                </h2>
+                <p className="mt-4 text-lg text-primary-100">
+                  Connect with other crypto real estate investors, share insights, and get early access to new properties.
                 </p>
-                <a
-                  href="https://discord.gg/RentVerse"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                >
-                  Join Now
-                </a>
-                <p className="mt-4 text-sm text-gray-500 text-center">
-                  Already a member?{' '}
-                  <a href="https://discord.gg/RentVerse" className="text-indigo-600 hover:text-indigo-500">
-                    Sign in
+                <dl className="mt-8 space-y-6">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary-700 text-white">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <dt className="text-lg leading-6 font-medium text-white">
+                        10,000+ Members
+                      </dt>
+                      <dd className="mt-2 text-base text-primary-100">
+                        Join a growing community of crypto-savvy real estate investors
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary-700 text-white">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <dt className="text-lg leading-6 font-medium text-white">
+                        Weekly Events
+                      </dt>
+                      <dd className="mt-2 text-base text-primary-100">
+                        Educational webinars, market updates, and networking sessions
+                      </dd>
+                    </div>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="mt-12 lg:mt-0 flex justify-center">
+                <div className="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full">
+                  <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">
+                    Join Discord
+                  </h3>
+                  <p className="text-gray-500 text-center mb-8">
+                    Get instant access to our community and start connecting with other investors
+                  </p>
+                  <a
+                      href="https://discord.gg/RentVerse"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                  >
+                    Join Now
                   </a>
-                </p>
+                  <p className="mt-4 text-sm text-gray-500 text-center">
+                    Already a member?{' '}
+                    <a href="https://discord.gg/RentVerse" className="text-indigo-600 hover:text-indigo-500">
+                      Sign in
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
   );
 }
 

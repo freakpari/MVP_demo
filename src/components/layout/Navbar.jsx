@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX , FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../../context/ThemeContext';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { dark, setDark } = useTheme();
+
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -14,7 +17,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-sm">
+      <nav className="bg-white dark:bg-secondary-900 shadow-sm transition-colors">
       <div className="container">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -39,6 +42,13 @@ function Navbar() {
               </Link>
             ))}
             <button
+                onClick={() => setDark(!dark)}
+                className="text-secondary-600 dark:text-secondary-300 hover:text-primary-600 p-2 rounded-full"
+                aria-label="Toggle theme"
+            >
+              {dark ? <FiSun size={20} /> : <FiMoon size={20} />}
+            </button>
+            <button
               className="btn"
             >
               Connect
@@ -48,8 +58,16 @@ function Navbar() {
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button
+                onClick={() => setDark(!dark)}
+                className="text-secondary-600 dark:text-secondary-300 hover:text-primary-600 p-2"
+                aria-label="Toggle theme"
+            >
+              {dark ? <FiSun size={20} /> : <FiMoon size={20} />}
+            </button>
+
+            <button
               type="button"
-              className="text-secondary-600 hover:text-primary-600"
+              className="text-secondary-600 dark:text-secondary-300 hover:text-primary-600"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -65,7 +83,7 @@ function Navbar() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-3 py-2 text-base font-medium text-secondary-600 hover:text-primary-600 hover:bg-primary-50"
+                  className="block px-3 py-2 text-base font-medium text-secondary-600 dark:text-secondary-300 hover:text-primary-600 hover:bg-primary-50"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

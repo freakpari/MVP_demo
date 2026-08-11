@@ -6,7 +6,7 @@ const orderRouter = require("./routes/orderRoute");
 const paymentRouter = require("./routes/paymentRoute");
 const productRouter = require("./routes/productRoute");
 const userRouter = require("./routes/userRoute");
-
+const blockchainRouter = require("./routes/blockchainRoute");
 const app = express();
 
 app.use(express.json());
@@ -16,7 +16,7 @@ app.use('/api/order', orderRouter);
 app.use('/api/payment', paymentRouter);
 app.use('/api/product', productRouter);
 app.use('/api/user', userRouter);
-
+app.use('/api/blockchain', blockchainRouter);
 // deployment
 __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {

@@ -1,4 +1,4 @@
-const app = require('./app');
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });const app = require('./app');
 const connectDatabase = require('./config/database');
 const cloudinary = require('cloudinary');
 const PORT = process.env.PORT || 3099;
